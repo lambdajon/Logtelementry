@@ -1,0 +1,64 @@
+cabal-version:      3.4
+name:               logementry
+
+version:            0.1.0
+
+description:        Logger for backend applications with open telementry capabilites
+license:            MIT
+
+license-file:       LICENSE
+
+author:             lambdajon
+
+maintainer:         lambdajon42@gmail.com
+
+build-type:         Simple
+
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+
+    exposed-modules:  
+        Logementry
+        Logementry.Types
+
+    build-depends:    
+          base ^>=4.17.2.1
+        , bytestring
+        , time
+        , containers
+        , aeson
+        , text
+
+    hs-source-dirs:   src
+
+    default-extensions:
+        DataKinds
+        DeriveGeneric
+        DerivingStrategies
+        GADTs
+    GHC-Options:
+        -Wall
+        -fno-warn-type-defaults
+        -Wunused-packages
+
+    default-language: GHC2021
+
+test-suite logementry-test
+    import:           warnings
+
+    default-language: GHC2021
+
+    type:             exitcode-stdio-1.0
+
+    hs-source-dirs:   test
+
+    main-is:          Main.hs
+
+    build-depends:
+        base ^>=4.17.2.1,
+        logementry
