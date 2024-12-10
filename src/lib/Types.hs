@@ -15,14 +15,14 @@ data Severity = Trace | Debug | Info | Warning | Error | Fatal
   deriving (Eq, Ord, Show, Read, Enum)
 
 data LogRecord = LogRecord {
-    logTimeNano   :: Int64,
-    severityNumber :: Int,  
-    severityText   :: Severity,
+    logTimeNano       :: Int64,
+    severityNumber    :: Int,  
+    severityText      :: Severity,
     logBody           :: AttributeValue,
-    attributes     :: [(String, AttributeValue)],
-    droppedCount   :: Int,
-    traceId        :: String,
-    spanId         :: String
+    attributes        :: [(String, AttributeValue)],
+    droppedCount      :: Int,
+    traceId           :: String,
+    spanId            :: String
 } deriving (Show, Eq)
 
 data Scope = Scope deriving (Show, Eq)
